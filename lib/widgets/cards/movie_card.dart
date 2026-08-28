@@ -49,7 +49,10 @@ class MovieCard extends StatelessWidget {
                 Positioned(
                   top: 6,
                   left: 6,
-                  child: RatingBadge(rating: movie.voteAverage, isCompact: true),
+                  child: RatingBadge(
+                    rating: movie.voteAverage,
+                    isCompact: true,
+                  ),
                 ),
                 Positioned(
                   top: 6,
@@ -74,7 +77,9 @@ class MovieCard extends StatelessWidget {
                   Text(
                     movie.releaseYear,
                     style: AppTextStyles.caption.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.6),
                     ),
                   ),
                 if (movie.releaseYear.isNotEmpty && primaryGenre != null)
@@ -83,7 +88,9 @@ class MovieCard extends StatelessWidget {
                     child: Text(
                       '•',
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.4),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.4),
                       ),
                     ),
                   ),
@@ -94,7 +101,9 @@ class MovieCard extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextStyles.caption.copyWith(
-                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.6),
                       ),
                     ),
                   ),

@@ -12,7 +12,9 @@ class ConnectivityProvider extends ChangeNotifier {
 
   void init() {
     _checkInitialConnectivity();
-    _subscription = _connectivity.onConnectivityChanged.listen(_updateConnectivityStatus);
+    _subscription = _connectivity.onConnectivityChanged.listen(
+      _updateConnectivityStatus,
+    );
   }
 
   Future<void> _checkInitialConnectivity() async {

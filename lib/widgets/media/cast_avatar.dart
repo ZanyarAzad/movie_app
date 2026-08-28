@@ -34,7 +34,9 @@ class CastAvatar extends StatelessWidget {
           height: radius * 2,
           fit: BoxFit.cover,
           placeholder: (context, url) => Container(
-            color: isDark ? AppColors.shimmerBaseDark : AppColors.shimmerBaseLight,
+            color: isDark
+                ? AppColors.shimmerBaseDark
+                : AppColors.shimmerBaseLight,
           ),
           errorWidget: (context, url, error) => _buildFallback(isDark),
         ),
@@ -45,11 +47,11 @@ class CastAvatar extends StatelessWidget {
   Widget _buildFallback(bool isDark) {
     final initials = name.isNotEmpty
         ? name
-            .trim()
-            .split(' ')
-            .take(2)
-            .map((e) => e.isNotEmpty ? e[0].toUpperCase() : '')
-            .join()
+              .trim()
+              .split(' ')
+              .take(2)
+              .map((e) => e.isNotEmpty ? e[0].toUpperCase() : '')
+              .join()
         : '?';
 
     return CircleAvatar(

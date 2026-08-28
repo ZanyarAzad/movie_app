@@ -39,7 +39,8 @@ class CachedMoviePoster extends StatelessWidget {
         height: height,
         fit: fit,
         placeholder: (context, url) => _buildLoading(context),
-        errorWidget: (context, url, error) => _buildPlaceholder(context, effectiveRadius),
+        errorWidget: (context, url, error) =>
+            _buildPlaceholder(context, effectiveRadius),
       ),
     );
   }
@@ -89,7 +90,9 @@ class CachedMoviePoster extends StatelessWidget {
             'No Poster',
             style: TextStyle(
               fontSize: 10,
-              color: isDark ? AppColors.darkTextMuted : AppColors.lightTextMuted,
+              color: isDark
+                  ? AppColors.darkTextMuted
+                  : AppColors.lightTextMuted,
             ),
           ),
         ],

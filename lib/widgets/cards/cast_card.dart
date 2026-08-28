@@ -6,10 +6,7 @@ import '../media/cast_avatar.dart';
 class CastCard extends StatelessWidget {
   final CastModel cast;
 
-  const CastCard({
-    super.key,
-    required this.cast,
-  });
+  const CastCard({super.key, required this.cast});
 
   @override
   Widget build(BuildContext context) {

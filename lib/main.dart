@@ -7,6 +7,8 @@ import 'core/providers/watchlist_provider.dart';
 import 'core/router/app_router.dart';
 import 'core/services/genre_service.dart';
 import 'core/services/storage_service.dart';
+import 'features/search/controllers/search_movies_provider.dart';
+import 'features/trending/controllers/trending_movies_provider.dart';
 import 'utilities/themes/theme.dart';
 import 'widgets/misc/offline_banner.dart';
 
@@ -25,6 +27,8 @@ void main() async {
   final themeProvider = ThemeProvider(storageService)..init();
   final watchlistProvider = WatchlistProvider(storageService)..loadWatchlist();
   final connectivityProvider = ConnectivityProvider()..init();
+  final trendingProvider = TrendingMoviesProvider();
+  final searchProvider = SearchMoviesProvider();
 
   runApp(
     MultiProvider(
@@ -32,6 +36,8 @@ void main() async {
         ChangeNotifierProvider.value(value: themeProvider),
         ChangeNotifierProvider.value(value: watchlistProvider),
         ChangeNotifierProvider.value(value: connectivityProvider),
+        ChangeNotifierProvider.value(value: trendingProvider),
+        ChangeNotifierProvider.value(value: searchProvider),
       ],
       child: const MovieApp(),
     ),

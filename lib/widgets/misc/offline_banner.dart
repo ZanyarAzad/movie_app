@@ -23,7 +23,10 @@ class OfflineBanner extends StatelessWidget {
               bottom: false,
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 4,
+                  horizontal: 16,
+                ),
                 alignment: Alignment.center,
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -46,7 +46,8 @@ class VideoModel {
   }
 
   String get youtubeUrl => 'https://www.youtube.com/watch?v=$key';
-  String get youtubeThumbnailUrl => 'https://img.youtube.com/vi/$key/hqdefault.jpg';
+  String get youtubeThumbnailUrl =>
+      'https://img.youtube.com/vi/$key/hqdefault.jpg';
   bool get isYouTube => site.toLowerCase() == 'youtube';
   bool get isTrailer => type.toLowerCase() == 'trailer';
 }

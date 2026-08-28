@@ -57,7 +57,9 @@ class AppSearchBar extends StatelessWidget {
           suffixIcon: controller.text.isNotEmpty
               ? IconButton(
                   icon: const Icon(Icons.close_rounded, size: 18),
-                  color: isDark ? AppColors.darkTextMuted : AppColors.lightTextMuted,
+                  color: isDark
+                      ? AppColors.darkTextMuted
+                      : AppColors.lightTextMuted,
                   onPressed: onClear,
                 )
               : null,

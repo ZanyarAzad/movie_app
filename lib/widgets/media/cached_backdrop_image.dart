@@ -53,9 +53,7 @@ class CachedBackdropImage extends StatelessWidget {
           else
             Container(
               color: isDark ? AppColors.darkCard : AppColors.lightCard,
-              child: const Center(
-                child: Icon(Icons.movie_outlined, size: 48),
-              ),
+              child: const Center(child: Icon(Icons.movie_outlined, size: 48)),
             ),
           if (showGradient)
             Positioned.fill(
@@ -67,7 +65,10 @@ class CachedBackdropImage extends StatelessWidget {
                     colors: [
                       Colors.transparent,
                       Colors.black.withValues(alpha: 0.3),
-                      (isDark ? AppColors.darkBackground : AppColors.lightBackground).withValues(alpha: 0.95),
+                      (isDark
+                              ? AppColors.darkBackground
+                              : AppColors.lightBackground)
+                          .withValues(alpha: 0.95),
                     ],
                     stops: const [0.0, 0.6, 1.0],
                   ),

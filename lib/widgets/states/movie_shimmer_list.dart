@@ -39,10 +39,12 @@ class _MovieShimmerListState extends State<MovieShimmerList>
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final baseColor =
-        isDark ? AppColors.shimmerBaseDark : AppColors.shimmerBaseLight;
-    final highlightColor =
-        isDark ? AppColors.shimmerHighlightDark : AppColors.shimmerHighlightLight;
+    final baseColor = isDark
+        ? AppColors.shimmerBaseDark
+        : AppColors.shimmerBaseLight;
+    final highlightColor = isDark
+        ? AppColors.shimmerHighlightDark
+        : AppColors.shimmerHighlightLight;
 
     return AnimatedBuilder(
       animation: _controller,
@@ -188,11 +190,7 @@ class _MovieShimmerListState extends State<MovieShimmerList>
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            baseColor,
-            highlightColor,
-            baseColor,
-          ],
+          colors: [baseColor, highlightColor, baseColor],
           stops: [
             (_controller.value - 0.3).clamp(0.0, 1.0),
             _controller.value,

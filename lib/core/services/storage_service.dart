@@ -17,7 +17,9 @@ class StorageService {
     return rawList
         .map((item) {
           try {
-            return MovieModel.fromJson(jsonDecode(item) as Map<String, dynamic>);
+            return MovieModel.fromJson(
+              jsonDecode(item) as Map<String, dynamic>,
+            );
           } catch (_) {
             return null;
           }

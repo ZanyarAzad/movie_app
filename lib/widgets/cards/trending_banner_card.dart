@@ -14,11 +14,7 @@ class TrendingBannerCard extends StatelessWidget {
   final MovieModel movie;
   final VoidCallback? onTap;
 
-  const TrendingBannerCard({
-    super.key,
-    required this.movie,
-    this.onTap,
-  });
+  const TrendingBannerCard({super.key, required this.movie, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +59,10 @@ class TrendingBannerCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 2,
+                              ),
                               decoration: BoxDecoration(
                                 color: Theme.of(context).colorScheme.primary,
                                 borderRadius: AppRadii.radiusSm,
@@ -91,7 +90,10 @@ class TrendingBannerCard extends StatelessWidget {
                             const SizedBox(height: 4),
                             Row(
                               children: [
-                                RatingBadge(rating: movie.voteAverage, isCompact: true),
+                                RatingBadge(
+                                  rating: movie.voteAverage,
+                                  isCompact: true,
+                                ),
                                 const SizedBox(width: 8),
                                 if (movie.releaseYear.isNotEmpty)
                                   Text(

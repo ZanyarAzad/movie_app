@@ -33,11 +33,7 @@ class ErrorStateView extends StatelessWidget {
                 color: AppColors.error.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
-              child: Icon(
-                icon,
-                size: 56,
-                color: AppColors.error,
-              ),
+              child: Icon(icon, size: 56, color: AppColors.error),
             ),
             const SizedBox(height: AppSpacing.lg),
             Text(
@@ -67,9 +63,7 @@ class ErrorStateView extends StatelessWidget {
                   horizontal: AppSpacing.lg,
                   vertical: AppSpacing.md,
                 ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: AppRadii.radiusMd,
-                ),
+                shape: RoundedRectangleBorder(borderRadius: AppRadii.radiusMd),
               ),
             ),
           ],

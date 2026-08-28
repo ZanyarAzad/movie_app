@@ -20,7 +20,9 @@ class GenreChip extends StatelessWidget {
 
     final backgroundColor = isSelected
         ? theme.colorScheme.primary
-        : (isDark ? Colors.white.withValues(alpha: 0.08) : Colors.black.withValues(alpha: 0.06));
+        : (isDark
+              ? Colors.white.withValues(alpha: 0.08)
+              : Colors.black.withValues(alpha: 0.06));
 
     final textColor = isSelected
         ? Colors.white

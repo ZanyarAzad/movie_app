@@ -11,7 +11,11 @@ class AppUtils {
     } else if (amount >= 1000) {
       return '\$${(amount / 1000).toStringAsFixed(1)}K';
     }
-    final format = NumberFormat.currency(locale: 'en_US', symbol: '\$', decimalDigits: 0);
+    final format = NumberFormat.currency(
+      locale: 'en_US',
+      symbol: '\$',
+      decimalDigits: 0,
+    );
     return format.format(amount);
   }
 

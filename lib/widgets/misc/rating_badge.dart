@@ -7,11 +7,7 @@ class RatingBadge extends StatelessWidget {
   final double rating;
   final bool isCompact;
 
-  const RatingBadge({
-    super.key,
-    required this.rating,
-    this.isCompact = false,
-  });
+  const RatingBadge({super.key, required this.rating, this.isCompact = false});
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +29,7 @@ class RatingBadge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(
-            Icons.star_rounded,
-            color: AppColors.accentGold,
-            size: 14,
-          ),
+          const Icon(Icons.star_rounded, color: AppColors.accentGold, size: 14),
           const SizedBox(width: 3),
           Text(
             formatted,

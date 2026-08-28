@@ -36,12 +36,14 @@ class MovieModel {
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
       id: json['id'] as int? ?? 0,
-      title: json['title'] as String? ?? json['original_title'] as String? ?? '',
+      title:
+          json['title'] as String? ?? json['original_title'] as String? ?? '',
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String? ?? '',
       posterPath: json['poster_path'] as String?,
       backdropPath: json['backdrop_path'] as String?,
-      genreIds: (json['genre_ids'] as List<dynamic>?)
+      genreIds:
+          (json['genre_ids'] as List<dynamic>?)
               ?.map((e) => (e as num).toInt())
               .toList() ??
           const [],
@@ -123,9 +125,7 @@ class MovieModel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MovieModel &&
-          runtimeType == other.runtimeType &&
-          id == other.id;
+      other is MovieModel && runtimeType == other.runtimeType && id == other.id;
 
   @override
   int get hashCode => id.hashCode;

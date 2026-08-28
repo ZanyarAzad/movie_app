@@ -48,7 +48,8 @@ class ApiService {
         case DioExceptionType.sendTimeout:
         case DioExceptionType.receiveTimeout:
           return const ApiException(
-            message: 'Connection timed out. Please check your internet connection.',
+            message:
+                'Connection timed out. Please check your internet connection.',
             statusCode: 408,
           );
         case DioExceptionType.connectionError:
@@ -58,13 +59,17 @@ class ApiService {
         case DioExceptionType.badResponse:
           if (statusCode == 401) {
             return ApiException(
-              message: message.isNotEmpty ? message : 'Invalid API key or unauthorized access.',
+              message: message.isNotEmpty
+                  ? message
+                  : 'Invalid API key or unauthorized access.',
               statusCode: 401,
               tmdbStatusCode: tmdbCode,
             );
           } else if (statusCode == 404) {
             return ApiException(
-              message: message.isNotEmpty ? message : 'The requested resource was not found.',
+              message: message.isNotEmpty
+                  ? message
+                  : 'The requested resource was not found.',
               statusCode: 404,
               tmdbStatusCode: tmdbCode,
             );
@@ -100,10 +105,7 @@ class ApiService {
     try {
       final response = await _dio.get(
         '/trending/movie/$timeWindow',
-        queryParameters: {
-          'language': 'en-US',
-          'page': page,
-        },
+        queryParameters: {'language': 'en-US', 'page': page},
       );
       return MovieResponse.fromJson(response.data as Map<String, dynamic>);
     } catch (e) {
@@ -116,10 +118,7 @@ class ApiService {
     try {
       final response = await _dio.get(
         ApiConstants.popularMovies,
-        queryParameters: {
-          'language': 'en-US',
-          'page': page,
-        },
+        queryParameters: {'language': 'en-US', 'page': page},
       );
       return MovieResponse.fromJson(response.data as Map<String, dynamic>);
     } catch (e) {
@@ -170,9 +169,7 @@ class ApiService {
     try {
       final response = await _dio.get(
         ApiConstants.genreList,
-        queryParameters: {
-          'language': 'en',
-        },
+        queryParameters: {'language': 'en'},
       );
       final rawGenres = response.data['genres'] as List<dynamic>? ?? [];
       return rawGenres

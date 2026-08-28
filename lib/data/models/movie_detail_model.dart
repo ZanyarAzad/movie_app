@@ -55,7 +55,8 @@ class MovieDetailModel {
 
   factory MovieDetailModel.fromJson(Map<String, dynamic> json) {
     // Parse genres
-    final genreList = (json['genres'] as List<dynamic>?)
+    final genreList =
+        (json['genres'] as List<dynamic>?)
             ?.map((e) => GenreModel.fromJson(e as Map<String, dynamic>))
             .toList() ??
         const [];
@@ -65,11 +66,13 @@ class MovieDetailModel {
     List<CrewModel> crewList = const [];
     if (json['credits'] != null && json['credits'] is Map<String, dynamic>) {
       final creditsMap = json['credits'] as Map<String, dynamic>;
-      castList = (creditsMap['cast'] as List<dynamic>?)
+      castList =
+          (creditsMap['cast'] as List<dynamic>?)
               ?.map((e) => CastModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [];
-      crewList = (creditsMap['crew'] as List<dynamic>?)
+      crewList =
+          (creditsMap['crew'] as List<dynamic>?)
               ?.map((e) => CrewModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [];
@@ -79,7 +82,8 @@ class MovieDetailModel {
     List<VideoModel> videoList = const [];
     if (json['videos'] != null && json['videos'] is Map<String, dynamic>) {
       final videosMap = json['videos'] as Map<String, dynamic>;
-      videoList = (videosMap['results'] as List<dynamic>?)
+      videoList =
+          (videosMap['results'] as List<dynamic>?)
               ?.map((e) => VideoModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [];
@@ -87,7 +91,8 @@ class MovieDetailModel {
 
     return MovieDetailModel(
       id: json['id'] as int? ?? 0,
-      title: json['title'] as String? ?? json['original_title'] as String? ?? '',
+      title:
+          json['title'] as String? ?? json['original_title'] as String? ?? '',
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String? ?? '',
       posterPath: json['poster_path'] as String?,
@@ -136,9 +141,7 @@ class MovieDetailModel {
         'cast': cast.map((e) => e.toJson()).toList(),
         'crew': crew.map((e) => e.toJson()).toList(),
       },
-      'videos': {
-        'results': videos.map((e) => e.toJson()).toList(),
-      },
+      'videos': {'results': videos.map((e) => e.toJson()).toList()},
     };
   }
 
@@ -174,7 +177,9 @@ class MovieDetailModel {
         (v) => v.isTrailer && v.official,
         orElse: () => youtubeVideos.firstWhere(
           (v) => v.isTrailer,
-          orElse: () => youtubeVideos.isNotEmpty ? youtubeVideos.first : const VideoModel(id: '', key: '', name: ''),
+          orElse: () => youtubeVideos.isNotEmpty
+              ? youtubeVideos.first
+              : const VideoModel(id: '', key: '', name: ''),
         ),
       );
     } catch (_) {

@@ -31,10 +31,7 @@ class MovieListTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.cardColor,
         borderRadius: AppRadii.radiusMd,
-        border: Border.all(
-          color: theme.dividerColor,
-          width: 0.6,
-        ),
+        border: Border.all(color: theme.dividerColor, width: 0.6),
       ),
       child: InkWell(
         onTap: onTap,
@@ -56,7 +53,10 @@ class MovieListTile extends StatelessWidget {
                   Positioned(
                     bottom: 4,
                     left: 4,
-                    child: RatingBadge(rating: movie.voteAverage, isCompact: true),
+                    child: RatingBadge(
+                      rating: movie.voteAverage,
+                      isCompact: true,
+                    ),
                   ),
                 ],
               ),
@@ -88,7 +88,9 @@ class MovieListTile extends StatelessWidget {
                       Text(
                         movie.releaseYear,
                         style: AppTextStyles.caption.copyWith(
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                          color: theme.colorScheme.onSurface.withValues(
+                            alpha: 0.6,
+                          ),
                         ),
                       ),
                     const SizedBox(height: AppSpacing.xs),
@@ -107,7 +109,9 @@ class MovieListTile extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: AppTextStyles.caption.copyWith(
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                          color: theme.colorScheme.onSurface.withValues(
+                            alpha: 0.7,
+                          ),
                         ),
                       ),
                   ],

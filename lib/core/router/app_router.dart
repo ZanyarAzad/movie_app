@@ -16,8 +16,9 @@ class AppRoutes {
   static String movieDetailPath(int id) => '/movie/$id';
 }
 
-final GlobalKey<NavigatorState> _rootNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: 'root');
+final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(
+  debugLabel: 'root',
+);
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
@@ -64,10 +65,7 @@ final GoRouter appRouter = GoRouter(
         final idStr = state.pathParameters['id'] ?? '0';
         final movieId = int.tryParse(idStr) ?? 0;
         final extraMovie = state.extra as MovieModel?;
-        return MovieDetailScreen(
-          movieId: movieId,
-          initialMovie: extraMovie,
-        );
+        return MovieDetailScreen(movieId: movieId, initialMovie: extraMovie);
       },
     ),
   ],

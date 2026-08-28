@@ -56,8 +56,8 @@ class WatchlistToggleButton extends StatelessWidget {
       style: FilledButton.styleFrom(
         backgroundColor: isSaved
             ? (Theme.of(context).brightness == Brightness.dark
-                ? AppColors.darkCard
-                : AppColors.lightCard)
+                  ? AppColors.darkCard
+                  : AppColors.lightCard)
             : AppColors.primary,
         foregroundColor: isSaved
             ? Theme.of(context).colorScheme.onSurface
@@ -65,10 +65,7 @@ class WatchlistToggleButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: AppRadii.radiusMd,
           side: isSaved
-              ? BorderSide(
-                  color: Theme.of(context).dividerColor,
-                  width: 1,
-                )
+              ? BorderSide(color: Theme.of(context).dividerColor, width: 1)
               : BorderSide.none,
         ),
       ),

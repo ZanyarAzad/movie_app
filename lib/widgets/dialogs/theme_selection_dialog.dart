@@ -25,7 +25,10 @@ class ThemeSelectionDialog extends StatelessWidget {
         children: [
           Icon(Icons.palette_outlined, color: AppColors.primary),
           SizedBox(width: 10),
-          Text('Appearance', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+          Text(
+            'Appearance',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
         ],
       ),
       content: Column(
@@ -99,11 +102,7 @@ class ThemeSelectionDialog extends StatelessWidget {
               color: AppColors.primary,
               size: 20,
             )
-          : const Icon(
-              Icons.circle_outlined,
-              color: Colors.grey,
-              size: 20,
-            ),
+          : const Icon(Icons.circle_outlined, color: Colors.grey, size: 20),
     );
   }
 
