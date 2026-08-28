@@ -31,9 +31,24 @@ class AppUtils {
 
   static Future<bool> launchUrlStringSafe(String urlString) async {
     final uri = Uri.tryParse(urlString);
-    if (uri != null && await canLaunchUrl(uri)) {
-      return launchUrl(uri, mode: LaunchMode.externalApplication);
+    if (uri == null) return false;
+
+    try {
+      // 1. Try launching externally (e.g. YouTube app or default browser)
+      final launched = await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      );
+      if (launched) return true;
+    } catch (_) {
+      // Fallback
     }
-    return false;
+
+    try {
+      // 2. Fallback to platform default
+      return await launchUrl(uri, mode: LaunchMode.platformDefault);
+    } catch (_) {
+      return false;
+    }
   }
 }

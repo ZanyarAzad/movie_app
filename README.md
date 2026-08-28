@@ -226,25 +226,5 @@ flutter test
 flutter analyze
 ```
 
----
-
-## 📋 Requirements Compliance Matrix
-
-| # | Requirement from `requirement.md` | Status | Implementation Details |
-|---|---|:---:|---|
-| **1** | **Null Safety** throughout project | ✅ Verified | 100% null-safe code; verified via strict `analysis_options.yaml` & Dart 3.12 |
-| **2** | **ListView.builder** for all dynamic lists | ✅ Verified | Implemented in `TrendingScreen`, `SearchScreen`, `WatchlistScreen`, and detail cast carousel |
-| **3** | **Detail Screen Lifecycle** (init & dispose) | ✅ Verified | `ScrollController` & `TextEditingController` initialized in `initState()` and disposed in `dispose()` |
-| **4** | **Hardware Notches & Cutouts** handled gracefully | ✅ Verified | `SafeArea` applied on all screens & notch-safe floating back button |
-| **5** | **UI States** (Loading, Empty, Network Error) | ✅ Verified | `MovieShimmerList`, `EmptyStateView`, and `ErrorStateView` (with retry) across all screens |
-| **6** | **README.md** documentation | ✅ Verified | Comprehensive run instructions, architecture explanation, and compliance matrix |
-| **7** | **Version Control** (Git repository) | ✅ Verified | Modular commits and clean repository structure |
-| **8** | **Flutter 3.32+ & Dart 3.8+** compatibility | ✅ Verified | Tested and verified on Flutter 3.44.2 & Dart 3.12.2 |
-| **9** | **Code Formatting & Linting** | ✅ Verified | `dart format` applied across all 54 files; `flutter analyze` shows **0 issues** |
-| **10** | **Offline Watchlist Persistence** (`shared_preferences`) | ✅ Verified | Persisted locally in `SharedPreferences` and verified with unit tests |
-| **11** | **Dark, Light & System Theme Switcher** | ✅ Verified | `ThemeSelectionDialog` allows switching between System, Light, and Dark modes with persistence |
-
----
-
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

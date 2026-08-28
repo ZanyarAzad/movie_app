@@ -170,21 +170,26 @@ class MovieDetailModel {
     }
   }
 
+  List<VideoModel> get youtubeVideos =>
+      videos.where((v) => v.isYouTube && v.key.isNotEmpty).toList();
+
   VideoModel? get trailerVideo {
-    final youtubeVideos = videos.where((v) => v.isYouTube).toList();
-    try {
-      return youtubeVideos.firstWhere(
-        (v) => v.isTrailer && v.official,
-        orElse: () => youtubeVideos.firstWhere(
-          (v) => v.isTrailer,
-          orElse: () => youtubeVideos.isNotEmpty
-              ? youtubeVideos.first
-              : const VideoModel(id: '', key: '', name: ''),
-        ),
-      );
-    } catch (_) {
-      return null;
+    final list = youtubeVideos;
+    if (list.isEmpty) return null;
+
+    for (final v in list) {
+      if (v.isTrailer && v.official) return v;
     }
+    for (final v in list) {
+      if (v.isTrailer) return v;
+    }
+    for (final v in list) {
+      final type = v.type.toLowerCase();
+      if (type == 'teaser' || type == 'clip' || type == 'featurette') {
+        return v;
+      }
+    }
+    return list.first;
   }
 
   MovieModel toMovieModel() {
