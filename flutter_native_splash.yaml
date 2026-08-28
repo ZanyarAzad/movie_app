@@ -1,0 +1,19 @@
+flutter_native_splash:
+  # Light mode: white background with centered logo
+  color: "#FFFFFF"
+  image: assets/logo.png
+
+  # Dark mode: near-black background with logo
+  color_dark: "#1A1C1B"
+  image_dark: assets/logo.png
+
+  # Android 12+ (uses a circular icon format)
+  android_12:
+    image: assets/logo.png
+    icon_background_color: "#FFFFFF"
+    image_dark: assets/logo.png
+    icon_background_color_dark: "#FFFFFF"
+
+  # Platforms
+  android: true
+  ios: true

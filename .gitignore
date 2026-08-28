@@ -13,6 +13,10 @@
 migrate_working_dir/
 SKILL.md
 requirement.md
+main-example.md
+api-key.md
+api.md
+progress.md
 # IntelliJ related
 *.iml
 *.ipr

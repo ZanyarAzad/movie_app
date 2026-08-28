@@ -1,0 +1,17 @@
+flutter_launcher_icons:
+  android: true
+  ios: true
+
+  # Main icon (used for all platforms)
+  image_path: "assets/logo.png"
+
+  # Android adaptive icon (API 26+)
+  # Background matches the logo's dark green
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/logo.png"
+
+  # iOS — remove alpha channel (App Store requirement)
+  remove_alpha_ios: true
+
+  # Min SDK for Android adaptive icon
+  min_sdk_android: 21
