@@ -1,30 +1,37 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:movie_app/core/providers/connectivity_provider.dart';
+import 'package:movie_app/core/providers/theme_provider.dart';
+import 'package:movie_app/core/providers/watchlist_provider.dart';
+import 'package:movie_app/core/services/storage_service.dart';
 import 'package:movie_app/main.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('MovieApp launches and renders shell tabs', (WidgetTester tester) async {
+    SharedPreferences.setMockInitialValues({});
+    final prefs = await SharedPreferences.getInstance();
+    final storage = StorageService(prefs);
+    final themeProvider = ThemeProvider(storage)..init();
+    final watchlistProvider = WatchlistProvider(storage)..loadWatchlist();
+    final connectivityProvider = ConnectivityProvider();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider.value(value: themeProvider),
+          ChangeNotifierProvider.value(value: watchlistProvider),
+          ChangeNotifierProvider.value(value: connectivityProvider),
+        ],
+        child: const MovieApp(),
+      ),
+    );
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify bottom navigation destinations
+    expect(find.text('Trending'), findsOneWidget);
+    expect(find.text('Search'), findsOneWidget);
+    expect(find.text('Watchlist'), findsOneWidget);
   });
 }
